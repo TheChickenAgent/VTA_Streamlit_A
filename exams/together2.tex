@@ -1,0 +1,126 @@
+\documentclass{exam}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{cleveref}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{ticks=none}
+
+\newlist{todolist}{itemize}{2}
+\setlist[todolist]{label=$\square$}
+
+
+\title{CEN1004: Linear Algebra}
+\date{Exam 2021}
+\author{Dr. Ir. Martijn Bouss\'e}
+
+\printanswers
+
+\begin{document}
+
+\maketitle
+
+The exam consists of 24 questions (4 per lecture). There are two types of questions:
+\begin{itemize}
+	\item \textbf{True/False statements}: This type of question consists of a statement about a (combination of) linear algebra concept(s) that is either true or false. You answer these questions by indicating whether the statement is true or false and by briefly motivating your answer. If the statement is false, a counter-example is sufficient. If the statement is true, you briefly outline a proof and/or mention relevant theorems. (Recall that the exam is open book.) This type of question can earn you two points: one point for correctly indicating whether the statement is true or false and one point for the motivation.
+	\item \textbf{Construction questions}: This type of question asks you to construct a matrix with particular properties. Typically, many different answers are possible, and they are correct as long as the given matrix admits the specified properties. This type of question can earn you two points. A motivation is not required, but encouraged because it might still earn you some points.
+\end{itemize}
+
+\begin{enumerate}
+
+	\item If $\{\textbf{u},\textbf{v}\}$ is linearly independent and $\{\textbf{v},\textbf{w}\}$ is linearly independent, then so is $\{\textbf{u},\textbf{v},\textbf{w}\}$.
+	
+	\begin{solutionorbox}[2in] \textbf{False}.
+		Counter-example: The set $\left\{\begin{bmatrix} 1 \\ 0\end{bmatrix},\begin{bmatrix} 0 \\ 1\end{bmatrix}\right\}$ is linearly dependent and the set $\left\{\begin{bmatrix} 1 \\ 0\end{bmatrix},\begin{bmatrix} 1 \\ 1\end{bmatrix}\right\}$ is linearly dependent, but the set $\left\{\begin{bmatrix} 1 \\ 0\end{bmatrix},\begin{bmatrix} 0 \\ 1\end{bmatrix},\begin{bmatrix} 1 \\ 1\end{bmatrix}\right\}$ is \textbf{not} linearly dependent.
+	\end{solutionorbox}
+
+    \item Let $\textbf{A}$ and $\textbf{B}$ be two orthogonal matrices, then the product $\textbf{A}\textbf{B}$ is also \textbf{always} orthogonal.	
+	
+	\begin{solutionorbox}[2in] \textbf{True}.
+		Consider two orthogonal matrices $\textbf{A}$ and $\textbf{B}$, i.e., we have that:
+			\begin{align*}
+				\textbf{A}^\text{T}\textbf{A} &= \textbf{I}, \\
+				\textbf{B}^\text{T}\textbf{B} &= \textbf{I}. 
+			\end{align*}
+		Then the product is also orthogonal because
+			\begin{align*}
+				(\textbf{A}\textbf{B})^\text{T}(\textbf{A}\textbf{B}) &= \textbf{B}^\text{T}\textbf{A}^\text{T}\textbf{A}\textbf{B} \\
+				&= \textbf{B}^\text{T}\textbf{B}\\
+				&= \textbf{I}
+			\end{align*}
+	\end{solutionorbox}
+
+    \item If $\lambda$ is an eigenvalue of $\textbf{A}$, then it is also an eigenvalue of $\textbf{A}^\text{T}$.
+	
+	\begin{solutionorbox}[2in] \textbf{True}.
+		We can find eigenvalues via the characteristic equation:
+			\begin{align*}
+				\text{det}(\textbf{A}^\text{T} - \lambda \textbf{I}) &= 0, \\
+				\text{det}(\textbf{A}^\text{T} - \lambda \textbf{I}^\text{T}) &= 0, \\
+				\text{det}((\textbf{A} - \lambda \textbf{I})^\text{T}) &= 0, \\
+				\text{det}(\textbf{A} - \lambda \textbf{I}) &= 0. 
+			\end{align*}
+		Hence, the eigenvalues of $\textbf{A}$ and $\textbf{A}^\text{T}$ are the same.
+	\end{solutionorbox}
+
+    \item The product of two symmetric matrices is \textbf{always} symmetric.
+	
+	\begin{solutionorbox}[2in] \textbf{False}.
+		Consider two symmetric matrices $\textbf{A}$ and $\textbf{B}$, i.e., we have that:
+		\begin{align*}
+			\textbf{A} &= \textbf{A}^\text{T}, \\
+			\textbf{B} &= \textbf{B}^\text{T}, \\
+		\end{align*}
+		The product is not symmetric because:
+		\begin{align*}
+			\left(\textbf{A}\textbf{B}\right)^\text{T} &= \textbf{B}^\text{T}\textbf{A}^\text{T}, \\
+			&= \textbf{B}\textbf{A},
+		\end{align*}
+		and matrix multiplication is not commutative.
+	\end{solutionorbox}
+
+    \item In order to construct an eigenvector basis of $\mathbb{R}^n$ from a matrix $\textbf{A}$, $\textbf{A}$ must have $n$ \textbf{distinct} eigenvalues.
+	
+	\begin{solutionorbox}[3.2in] \textbf{False}.
+		In order to construct an eigenvector basis of $\mathbb{R}^n$ from a matrix $\textbf{A}$, we need $n$ linearly independent eigenvectors (by the diagonalization theorem), which can be found from less than $n$ (distinct) eigenvalues.
+		Counter-example: $\textbf{A} = \textbf{I}$.
+	\end{solutionorbox}
+
+    \item The columns of \textbf{any} $2 \times 2$ \textbf{rotation} matrix form an orthogonal set.
+	
+	\begin{solutionorbox}[3.2in] \textbf{True}.
+		The rotation matrix is given by $\begin{bmatrix} \cos \phi & -\sin \phi \\ \sin \phi & \cos \phi \end{bmatrix}$. The inner product of the columns is given by
+		\begin{align*}
+			\begin{bmatrix}
+				\cos \phi & \sin \phi 
+			\end{bmatrix}
+			\begin{bmatrix}
+				-\sin \phi \\
+				\cos \phi
+			\end{bmatrix}
+			= -\cos \phi \sin \phi + \cos \phi \sin \phi = 0.
+		\end{align*}
+		
+	\end{solutionorbox}
+
+    \item Suppose $\textbf{A}$ is an $n \times n$ symmetric matrix and $\textbf{B}$ is \textbf{any} $n \times m$ matrix, then $\textbf{B}^\text{T}\textbf{A}\textbf{B}$ and $\textbf{B}^\text{T}\textbf{B}$ are symmetric matrices.
+	
+	\begin{solutionorbox}[3.2in] \textbf{True}.
+		First, note that:
+		\begin{align*}
+			(\textbf{B}^\text{T}\textbf{A}\textbf{B})^\text{T} &= \textbf{B}^\text{T}\textbf{A}^\text{T}\textbf{B}^\text{T$^\text{T}$} = \textbf{B}^\text{T}\textbf{A}\textbf{B}.
+		\end{align*}	
+		The second one holds because the first one also holds for $\textbf{A} = \textbf{I}$.
+	\end{solutionorbox}
+
+    \item \textbf{Every} orthogonal set in $\mathbb{R}^n$ is linearly independent.
+
+	\begin{solutionorbox}[2.2in] \textbf{False}.
+		Counter-example: The set $\left\{ \begin{bmatrix} 0 \\ 0 \end{bmatrix}, \begin{bmatrix} 1 \\ 0 \end{bmatrix} \right\}$ is clearly orthogonal because the zero vector is orthogonal to every vector, but the set is clearly not linearly independent because every set that contains the zero vector is linearly dependent.
+	\end{solutionorbox}
+
+\end{enumerate}
