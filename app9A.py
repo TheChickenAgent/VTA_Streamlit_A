@@ -78,16 +78,17 @@ def intro():
         Please go to the DEMO page using the sidebar navigation.
 
         Survey link: [Survey](https://maastrichtuniversity.eu.qualtrics.com/jfe/form/SV_3f9d79itNZlNvFQ)
-
-        This app is a Virtual Teaching Assistant for Linear Algebra.
-        It is designed to help students learn Linear Algebra concepts, like:
-        - solving linear systems of equations;
-        - matrix algebra;
-        - determinants;
-        - eigenvalues and eigenvectors;
-        through the use of a chat interface and true/false questions.
     """
     )
+    #    This app is a Virtual Teaching Assistant for Linear Algebra.
+    #    It is designed to help students learn Linear Algebra concepts, like:
+    #    - solving linear systems of equations;
+    #    - matrix algebra;
+    #    - determinants;
+    #    - eigenvalues and eigenvectors;
+    #    through the use of a chat interface and true/false questions.
+    #"""
+    #)
 
 def stream_string_data(text: str):
     for word in text.split(" "):
