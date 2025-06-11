@@ -77,6 +77,8 @@ def intro():
         This app is in demo mode for DACS students at Maastricht University, the Netherlands.
         Please go to the DEMO page using the sidebar navigation.
 
+        Survey link: [Survey](https://maastrichtuniversity.eu.qualtrics.com/jfe/form/SV_3f9d79itNZlNvFQ)
+
         This app is a Virtual Teaching Assistant for Linear Algebra.
         It is designed to help students learn Linear Algebra concepts, like:
         - solving linear systems of equations;
