@@ -888,8 +888,9 @@ def read_questions_answers():
             exam_answers_TF.append(a)
     return exam_questions_TF, exam_answers_TF
 
-def save_conversation():
+def save_conversation(correct_answer_bool: bool| None):
     data = {
+        "correct_answer": correct_answer_bool,
         "timestamp_begin": st.session_state["begin_timestamp"],
         "timestamp_saved": datetime.now(),
         "selected_question": st.session_state["selected_question"],
@@ -971,15 +972,18 @@ def demo():
         else:
             user_answer = st.session_state.get("demo_user_answer", None)
             correct = "True" if "True" in answer else "False"
+            correct_answer_bool = None
             if user_answer is not None:
                 if (user_answer and correct == "True") or (not user_answer and correct == "False"):
                     st.success(f"Correct! The answer is {correct}.")
+                    correct_answer_bool = True
                     #st.info(f"Explanation: {answer}")
                 else:
                     st.error(f"Incorrect. The correct answer is {correct}.")
+                    correct_answer_bool = False
                 st.info(f"Explanation exam style: {answer}")
                 #st.info(f"Explanation LLM: {st.session_state["explanation_demo"]}")
-            file = save_conversation()
+            file = save_conversation(correct_answer_bool)
             st.download_button(
                 label="Download conversations",
                 data=file,
