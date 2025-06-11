@@ -945,7 +945,7 @@ def demo():
             st.session_state.demo_answer_submitted = True
             st.session_state.demo_user_answer = False
         if col3.button("Force return", key="return_btn", disabled=st.session_state.get("demo_answer_submitted", False)):
-            file = save_conversation()
+            file = save_conversation(None)
             st.download_button(
                 label="Download conversations",
                 data=file,
