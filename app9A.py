@@ -858,6 +858,7 @@ def demo():
         if st.button("Confirm and continue"):
             st.success(f"Proceeding to the next page with {selected_question}...")
             st.session_state.question_submitted = True
+            st.rerun()
     elif st.session_state.question_submitted:
         st.success("You have already selected a question. You can now proceed to the chat interface or practice True/False questions.")
         st.session_state["begin_timestamp"] = datetime.now()
