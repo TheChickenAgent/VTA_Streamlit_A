@@ -958,8 +958,8 @@ def demo():
         
 
 page_names_to_funcs = {
+    "User testing": demo,
     "Main menu": intro,
-    "DEMO": demo,
     #"Linear Algebra chat": chat_TF_generation,
     "Linear Algebra chat": chat,
     "Practise T/F questions": practice_true_false_questions,
