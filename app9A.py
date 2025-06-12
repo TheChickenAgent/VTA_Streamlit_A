@@ -841,6 +841,7 @@ def save_conversation(correct_answer_bool: bool| None):
 def demo():
     st.write("# DEMO: Linear Algebra Virtual Teaching Assistant")
     st.markdown("This is a demo of the Virtual Teaching Assistant for Linear Algebra. You can try out the chat interface and practice True/False questions.")
+    st.markdown("Survey link: [Survey](https://maastrichtuniversity.eu.qualtrics.com/jfe/form/SV_3f9d79itNZlNvFQ)")
     questions, answers = read_questions_answers()
     if "question_submitted" not in st.session_state:
         st.session_state.question_submitted = False
