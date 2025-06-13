@@ -885,7 +885,7 @@ def demo():
 
         st.write(f"### Question:")
         st.write(f"#### {question}")
-        st.warning(f"#### Please do not click the True/False buttons yet, but try chat with the model to get towards the answer through asking concepts.", icon="⚠️")
+        st.warning(f"Please do not click the True/False buttons yet, but try chat with the model to get towards the answer through asking concepts.", icon="⚠️")
         col1, col2, col3 = st.columns(3)
         if col1.button("True", key="demo_true_btn", disabled=st.session_state.get("demo_answer_submitted", False)):
             st.session_state.demo_answer_submitted = True
