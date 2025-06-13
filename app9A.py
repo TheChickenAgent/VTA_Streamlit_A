@@ -861,7 +861,7 @@ def demo():
             st.session_state.question_submitted = True
             st.rerun()
     elif st.session_state.question_submitted:
-        st.success("You have already selected a question. You can now proceed to the chat interface or practice True/False questions.")
+        st.success("You have selected a question. You can now proceed to the chat with the model to get hints to the answer of the True/False questions.")
         st.session_state["begin_timestamp"] = datetime.now()
         selected_question_number = int(st.session_state.selected_question[1:]) - 1  # Convert Q1 to index 0
         question = questions[selected_question_number]
@@ -885,6 +885,7 @@ def demo():
 
         st.write(f"### Question:")
         st.write(f"#### {question}")
+        st.warning(f"#### Please do not click the True/False buttons yet, but try chat with the model to get towards the answer through asking concepts.", icon="⚠️")
         col1, col2, col3 = st.columns(3)
         if col1.button("True", key="demo_true_btn", disabled=st.session_state.get("demo_answer_submitted", False)):
             st.session_state.demo_answer_submitted = True
