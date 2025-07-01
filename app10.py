@@ -886,6 +886,7 @@ def demo():
         answer = answer.replace("\\textbf{True}", "*True*")
         answer = answer.replace("\\textbf{False}", "*False*")
         answer = answer.replace("\\textbf{not}", "*not*")
+        answer = answer.replace("\n", "")
         answer = answer.replace("\\begin{align*}", "$")
         answer = answer.replace("\\end{align*}", "$")
 
