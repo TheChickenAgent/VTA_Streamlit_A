@@ -938,7 +938,10 @@ def demo():
                 else:
                     st.error(f"Incorrect. The correct answer is {correct}.")
                     correct_answer_bool = False
-                st.info(f"Explanation exam style: {answer}")
+                exp = str("Explanation exam style:\n" + answer)
+                st.info(exp)
+                #st.info(f"Explanation exam style: {answer}")
+                #st.info("$\\textbf{A\}^\\text{T}\textbf{A} &= \textbf{I}, \\ \textbf{B}^\text{T}\textbf{B} &= \textbf{I}.$")
                 #st.info(f"Explanation LLM: {st.session_state["explanation_demo"]}")
             file = save_conversation(correct_answer_bool)
             st.download_button(
