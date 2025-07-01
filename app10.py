@@ -262,6 +262,7 @@ def chat_demo(question: str, o4_llm_state: dict):
             "You can write and run code to answer the question. "
             "DO NOT GIVE THE ANSWER TO THE QUESTION DIRECTLY. "
             "Do not give the answer to the student. "
+            "If there is a counter example in the explanation, do not directly mention it. "
             "DO NOT REFER TO THE EXPLANATION GIVEN TO YOU AS THE STUDENT DOES NOT HAVE ACCESS TO IT. USE IT TO HELP THE STUDENT. "
             "The students should learn from iteracting. "
             "You can give hints, but also ask for clarification or additional information if needed. "
